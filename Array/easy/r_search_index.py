@@ -1,7 +1,7 @@
 def searchInsert(self, nums: list, target: int) -> int:
         left=0
         right=len(nums)-1
-        # condition to check that left shoiuld not be grater than right if it is so 
+        # condition to check that left should not be grater than right if it is so 
         # it means the element does not exist 
         while left<=right:
             # every time  resetting mid where we can look that if element exist or not 
