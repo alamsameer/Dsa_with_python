@@ -95,3 +95,69 @@ def middleNode(self, head):
 ```python
 
 ```
+## Delete node when the value is given inspite the actual node 
+
+### concept
+- The linked list is empty, i.e. the head node is None.
+- Multiple nodes with the target value in a row.
+- The head node has the target value.
+- The head node, and any number of nodes immediately after it have the target value.
+- All of the nodes have the target value.
+- The last node has the target value.
+
+ <b>when a new variable is defied and if you refer to head ,it means it is reffering to the actual address of the head if you change to this variable head is also change </b>
+ 
+```python
+def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
+    #    creating a dummy node that so to work from first element ,if it matches
+        dummy=ListNode(-1)
+        # here we are referencing the head value to next of the dummy to have all the linked node 
+        dummy.next=headnow 
+        #this time  another varialble is defined to store the dummy address to work on it inspite working directly on the head
+        
+        ptr=dummy
+        # exiting condition 
+        while ptr.next is not None:
+            # it the value of one step ahead node value matche so  we can point to next of next
+            if ptr.next.val == val:
+                ptr.next=ptr.next.next
+            #otherwise we are moving foreward to look into this 
+            else:
+                ptr=ptr.next
+        return dummy.next
+```
+### palindrome cheaker in linkedList 
+### concept 
+using floyd two pointer algorithm 
+- find middle 
+- reverse right half ,slow = slow.next
+- compare head and slow 
+- if all are equal then return true otherwise False 
+```python
+def isPalindrome(self, head: Optional[ListNode])->Optional[ListNode]:
+        if head == None or head.next == None:
+            return True
+        slow,fast=head,head
+        while fast.next and fast.next.next:
+            slow=slow.next
+            fast=fast.next.next
+        slow.next=self.reverseList(slow.next)
+        slow=slow.next
+        print(slow)
+        while slow:
+            if slow.val !=head.val:
+                return False
+            slow=slow.next
+            head=head.next
+        return True
+
+    def reverseList(self, slow: Optional[ListNode])->Optional[ListNode]:
+        prev=None
+        current=slow
+        while current is not None:
+            temp=current.next
+            current.next=prev
+            prev=current
+            current=temp
+        return prev
+```

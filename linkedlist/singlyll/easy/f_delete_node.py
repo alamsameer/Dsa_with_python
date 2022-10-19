@@ -1,3 +1,5 @@
+#  delete when only nod e is give 
+
 def deleteNode(self, node):
         """
         :type node: ListNode
