@@ -1,3 +1,5 @@
+[Go to Easy Level](#easy-problems-ac-leetcode-☺️😎)
+[Go to Medium Level](#medium-level)
 
 # Easy problems a/c leetcode ☺️😎
 ## Reverse LinkedList 
