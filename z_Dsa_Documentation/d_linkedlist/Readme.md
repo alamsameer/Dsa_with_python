@@ -1,6 +1,5 @@
-[Go to Easy Level](#easy-problems-ac-leetcode-☺️😎)
-[Go to Medium Level](#medium-level)
-
+[Go to ](#easy-problems-ac-leetcode-☺️😎)
+[Go to ](#medium-level)
 # Easy problems a/c leetcode ☺️😎
 ## Reverse LinkedList 
 <img src=".\images\reverse ll.gif"/>
