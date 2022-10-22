@@ -379,3 +379,119 @@ def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNod
         slow.next=slow.next.next
         return head
 ```
+### you are given the head of a linked list, and an integer k.Return the head of the linked list after swapping the values of the kth node from the beginning and the kth node from the end (the list is 1-indexed).
+
+
+### concept 
+> Approach 1 
+
+- convert head into array
+- swap two element 
+- then rebuild head
+
+```python 
+def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+#         convert head into array
+#         swap two element 
+#         then rebuild head
+        array=[]
+        # traversing the linkedList's head into array
+        while head:
+            array.append(head.val)
+            head=head.next
+        # swap the value 
+        array[k-1],array[-k]=array[-k],array[k-1]
+        # creating the first node of the head
+        head=ListNode(array[0])
+        # defined pointer to move forward and assign the value to next
+        temp=head
+        # recreating the head
+        for i in range(1,len(array)):
+            dummy=ListNode(array[i])
+            temp.next=dummy
+            temp=temp.next
+        return head
+```
+> Approach 2 
+
+- This approach is using two pointer
+- we will define two pointer left and right
+- left will move until counter < k and right pointer move whwen k > counter
+- will just swap the  left and right val using temp variable 
+
+```python
+def swapNodes(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+#         next approach is two pointer 
+#  intialized left pointer
+        left=head
+        #  intialized right pointer
+        right=head
+         #  intialized curr pointer to move forward
+        curr=head
+        counter=1
+        while curr:
+            # when counter is less than k will move left
+            if (counter<k):
+                left=left.next
+            # when counter is greater  than k will move right
+            if (counter>k):
+                right=right.next
+            curr=curr.next
+            counter+=1
+        temp=left.val
+        # swaping the value 
+        left.val=right.val
+        right.val=temp
+        return head
+```
+
+###
+
+###
+
+### code
+```python
+def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        dummyHead=ListNode()
+        curr=dummyHead
+        carry=0
+        while l1 != None or l2 !=None or carry != 0:
+            l1val=l1.val if l1 else 0
+            l2val=l2.val if l2 else 0
+            sum=l1val+l2val+carry
+            carry=sum//10
+            newNode=ListNode(sum%10)
+            curr.next=newNode
+            curr=curr.next
+            l1=l1.next if l1 else None
+            l2=l2.next if l2 else None
+        return dummyHead.next
+```
+
+### Rotate Right in LinkedList
+
+```python
+def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+    # edge ase
+        if not head:
+            return head
+        curr=head
+        length=1
+        # connecting tail to head -- Start
+        while curr.next:
+            curr=curr.next
+            length+=1
+#       connecting to head
+        curr.next=head
+         # connecting tail to head -- end
+        #  this k value is calculated so to start 1 step ahead 
+        k=length-(k%length)
+        while k>0:
+            curr=curr.next
+            k-=1
+        #  our new Head
+        newHead=curr.next
+        # disconnecting  so tomake last or tail 
+        curr.next=None
+        return newHead
+```
