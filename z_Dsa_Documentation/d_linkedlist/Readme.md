@@ -495,3 +495,26 @@ def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         curr.next=None
         return newHead
 ```
+
+### linked-list-cycle-ii - Given the head of a linked list, return the node where the cycle begins. If there is no cycle, return null.
+
+### concept 
+ i could not understand this one
+
+```python
+def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head or not head.next:
+            return None
+        slow,fast=head,head
+        while fast  and fast.next :
+            slow=slow.next
+            fast=fast.next.next
+            if slow == fast:
+                break
+        else:
+            return None
+        while head != slow:
+            slow=slow.next
+            head=head.next        
+        return slow
+```
