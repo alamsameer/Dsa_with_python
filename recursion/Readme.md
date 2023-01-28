@@ -2,18 +2,53 @@
 [concept](#concept)
 
 [Explanation on easy Question](#easy)
-
-[Explanation on Medium Question](#medium)
-
 <details  >
-<summary>template</summary>
+<summary>Reverse stack using recursion </summary>
 <details>
 <summary>code </summary>
- ```js
- ```
-</details>
+
+```py
+
+    def reverse_stack(stack):
+    if not stack: #base case
+        return
+    last_element = stack.pop()
+    reverse_stack(stack)
+    insert_at_bottom(stack, last_element)
+    return stack
+
+def insert_at_bottom(stack, item):
+    # if stack is empty then append item to the last
+    if not stack:
+        stack.append(item)
+        return
+    # here the code run until the stack became empty
+    temp = stack.pop()
+    insert_at_bottom(stack, item)
+    stack.append(temp)
+
+stack = [1, 2, 3, 4, 5]
+reversed_stack = reverse_stack(stack)
+print(reversed_stack) # Output: [5, 4, 3, 2, 1]
+
+```
+ </details>
 <details>
 <summary>Expaination </summary>
+The reverse_stack() function is the main function that is responsible for reversing the stack using recursion. It works by following these steps:
+
+The function first checks if the stack is empty (base case), if so it returns without doing anything.
+If the stack is not empty, it removes the last element from the stack and stores it in a variable called last_element.
+Then the function calls itself recursively on the remaining stack, this recursive call will continue until the base case is reached, which is when the stack is empty.
+Once the recursion reaches the base case, it starts to unwind the stack, and in each call, it calls the insert_at_bottom() function, passing the stack and the last_element as arguments.
+The insert_at_bottom() function is a helper function that is used to insert an element at the bottom of the stack. It works by following these steps:
+
+The function first checks if the stack is empty, if so it simply pushes the item to the stack and returns.
+If the stack is not empty, the function removes the last element from the stack and stores it in a temporary variable called temp.
+Then the function calls itself recursively on the remaining stack and the item as arguments.
+Once the recursion reaches the base case, it starts to unwind the stack and in each call, it pushes the removed temp variable back to the stack.
+The combination of these two functions allows reversing the stack. The reverse_stack() function is responsible for removing the last element and calling the insert_at_bottom() function recursively. The insert_at_bottom() function is responsible for inserting the removed element at the bottom of the stack using recursion.
+
 </details>
 </details> 
  
