@@ -175,3 +175,17 @@ def generateParenthesis(n):
     return result
 
 ```
+Explaination:
+
+The function backtrack() takes four parameters:
+
+* combination: a string that represents the current combination of parentheses.
+* open_count: the number of open parentheses used in the current combination.
+* close_count: the number of close parentheses used in the current combination.
+* n: the maximum number of pairs of parentheses to generate.
+The function uses the following logic:
+
+* If the length of the combination is equal to 2 * n, it means that we have used the maximum number of parentheses, so the combination is added to the result.
+
+* If the number of open parentheses used is less than n, we add an open parenthesis to the combination and make a recursive call to backtrack().
+* If the number of close parentheses used is less than the number of open parentheses used, we add a close parenthesis to the combination and make a recursive call to backtrack().
