@@ -2,6 +2,9 @@
 [concept](#concept)
 
 [Explanation on easy Question](#easy)
+
+[Explanation on Hard Question](#hard)
+## Easy 
 <details  >
 <summary>Reverse stack using recursion </summary>
 <details>
@@ -99,11 +102,14 @@ The helper(n, 0) function is called with the number of digits (n) and 0 as the i
 </details> 
 
 
-[Explanation on Hard Question](#hard)
-## Easy 
 ## Medium
 ## Hard
 # Concept 
+[join method](#join-method)
+
+[filter method](#filter-method)
+
+[Backtracking](#backtracking)
 ## Join method 
 The `join()` method in Python is a string method that is used to concatenate a `list` of strings with a specified delimiter. The delimiter is specified as a string argument to the join() method, and the list of strings is passed as an argument to the method. The resulting string is the concatenation of the list of strings, with the delimiter inserted between each string. For example:
 ```py
@@ -137,3 +143,35 @@ It can also be used with a lambda function:
 ```
 In python 3.x filter method return filter` object` which needs to be converted to `list or tuple or set` to see the result.
 
+## Backtracking
+
+### overview
+A backtracking algorithm is a problem-solving algorithm that uses a brute force approach for finding the desired output.
+The Brute force approach tries out all the possible solutions and chooses the desired/best solutions.
+
+Backtracking is an algorithmic technique for solving problems recursively by trying to build a solution incrementally, one piece at a time, removing those solutions that fail to satisfy the constraints of the problem at any point of time (by time, here, is referred to the time elapsed till reaching any level of the search tree).
+
+Example : For example, consider the SudoKo solving Problem, we try filling digits one by one.
+
+### useCase
+Backtracking algorithms are often used in `combinatorial search problems`, where the goal is to find all possible combinations of elements that satisfy certain constraints. These problems include `generating permutations`,` subsets`, or `combinations of elements`,` finding paths in graphs`, `solving mazes`, `solving puzzles`, and so on.
+
+Backtracking is a `depth-first search (DFS) algorithm` that visits all nodes of a tree or a graph in a depth-first manner and prunes (abandon) branches that are not promising. It can be implemented using recursion or using a stack to keep track of the progress of the algorithm
+
+example: for generating paranthesis
+```py
+def generateParenthesis(n):
+    def backtrack(combination, open_count, close_count, n):
+        if len(combination) == 2 * n:
+            result.append(combination)
+            return
+        if open_count < n:
+            backtrack(combination + '(', open_count + 1, close_count, n)
+        if close_count < open_count:
+            backtrack(combination + ')', open_count, close_count + 1, n)
+            
+    result = []
+    backtrack('', 0, 0, n)
+    return result
+
+```
