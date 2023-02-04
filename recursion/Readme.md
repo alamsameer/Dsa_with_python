@@ -144,9 +144,22 @@ It can also be used with a lambda function:
 In python 3.x filter method return filter` object` which needs to be converted to `list or tuple or set` to see the result.
 
 ## Backtracking
+> Refercences
+- [https://www.programiz.com/dsa/backtracking-algorithm](https://www.programiz.com/dsa/backtracking-algorithm)
 
+Self notes for Recursion
+
+- Brute Force approach finds all the possible solutions and selects desired solution per given the constraints.
+- Dynamic Programming also uses Brute Force approach to find the OPTIMUM solution, either maximum or minimum.
+- Backtracking also uses Brute Force approach but to find ALL the solutions.
+- Solutions to the Backtracking problems can be represented as State-Space Tree.
+- The constrained applied to find the solution is called Bounding function.
+- Backtracking follows Depth-First Search method.
+- Branch and Bound is also a Brute Force approach, which uses Breadth-First Search method.
 ### overview
-A backtracking algorithm is a problem-solving algorithm that uses a brute force approach for finding the desired output.
+The term `backtracking `suggests that if the current solution is not suitable,` then backtrack and try other solutions`. Thus, `recursion` is used in this approach.
+
+A backtracking algorithm is a problem-solving algorithm that for finding the desired output.
 The Brute force approach tries out all the possible solutions and chooses the desired/best solutions.
 
 Backtracking is an algorithmic technique for solving problems recursively by trying to build a solution incrementally, one piece at a time, removing those solutions that fail to satisfy the constraints of the problem at any point of time (by time, here, is referred to the time elapsed till reaching any level of the search tree).
