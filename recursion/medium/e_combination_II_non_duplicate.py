@@ -1,5 +1,5 @@
 
-def combinationSum2( candidates: list[int], target: int) -> list[List[int]]:
+def combinationSum2( candidates: list[int], target: int) -> list[list[int]]:
     def backtrack(target,currcomb,ans,currindex):
         if target<0:
             return
